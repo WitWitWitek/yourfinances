@@ -12,7 +12,8 @@ const useContactForm = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       fullname: "",
-      email: "",
+      phone: "",
+      city: "",
     },
   });
 
