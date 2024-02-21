@@ -4,6 +4,9 @@ import { Wrapper } from "@/components/ui";
 import Image from "next/image";
 import { Button } from "@/components/ui";
 import ContactForm from "@/components/ContactForm/ContactForm";
+import { buttonVariants } from "@/components/ui";
+import Offer from "@/components/Offer/Offer";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -24,9 +27,17 @@ export default function Home() {
             <p className="text-primary">
               <b>Jesteśmy tu, aby Ci pomóc.</b>
             </p>
+            <p className="text-primary">
+              <b>Nie pobierzemy od Ciebie prowizji!</b>
+            </p>
           </div>
           <div>
-            <Button size={"lg"}>Wejdź!</Button>
+            <Link
+              href="/#offer"
+              className={buttonVariants({ variant: "default", size: "lg" })}
+            >
+              Wejdź!
+            </Link>
           </div>
         </div>
         <div className="relative w-[45%]">
@@ -39,6 +50,7 @@ export default function Home() {
           </div>
         </div>
       </Wrapper>
+      <Offer />
       <ContactForm />
     </>
   );

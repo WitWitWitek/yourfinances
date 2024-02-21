@@ -22,11 +22,13 @@ export default function ContactForm() {
     sendContactFormHandler(values);
 
   return (
-    <Wrapper className="h-screen py-20">
+    <Wrapper className="h-screen py-20" selector="kontakt">
       <div className="w-[60%] h-full flex flex-col justify-around">
-        <h2 className="text-5xl font-bold" id="kontakt">
-          Formularz kontaktowy
-        </h2>
+        <h2 className="text-5xl font-bold">Formularz kontaktowy</h2>
+        <p className="text-muted-foreground">
+          Wypełnij poniższy formularz, a doradca oddzwoni z informacją o
+          elastycznych opcjach pożyczek, w tym konsolidacji kredytu.
+        </p>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
