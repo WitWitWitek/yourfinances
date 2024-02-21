@@ -11,6 +11,16 @@ export const metadata: Metadata = {
   title: "Twoje Finanse",
   description:
     "Bezpieczna pożyczka dla Twoich potrzeb! Nie pobierzemy od Ciebie prowizji!",
+  metadataBase: new URL("https://twoje-finanse.com.pl"),
+  openGraph: {
+    title: "Twoje Finanse",
+    description:
+      "Bezpieczna pożyczka dla Twoich potrzeb! Nie pobierzemy od Ciebie prowizji!",
+    images: "/opengraph-image.png",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
