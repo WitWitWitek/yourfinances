@@ -11,14 +11,17 @@ export const formSchema = z.object({
     }),
   phone: z
     .string()
-    .min(2, {
-      message: "Email powinien zawierać co najmniej 2 znaki.",
-    })
-    .email({ message: "Adres e-mail nie jest poprawny." }),
+    .regex(/^(\+|\d)[0-9]{7,16}$/, {
+      message: "Nieprawidłowy numer telefonu.",
+    }),
   city: z
     .string()
     .min(2, {
-      message: "Email powinien zawierać co najmniej 2 znaki.",
+      message: "Nazwa miejscowości powinna zawierać co najmniej 2 znaki.",
     })
-    .email({ message: "Adres e-mail nie jest poprawny." }),
+    .max(200, {
+      message: "Nazwa miejscowości powinna zawierać maksymalnie 200 znaków.",
+    }),
 });
+
+export type TFormSchema = z.infer<typeof formSchema>;

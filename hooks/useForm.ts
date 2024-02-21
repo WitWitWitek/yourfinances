@@ -3,6 +3,7 @@ import * as z from "zod";
 import { formSchema } from "@/validation/formSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 const useContactForm = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -30,8 +31,9 @@ const useContactForm = () => {
       });
       const data = (await response.json()) as { message: string };
       response.ok && form.reset();
+      toast.success(data.message);
     } catch (err) {
-      console.log(err);
+      toast.success((err as { message: string }).message);
     } finally {
       setIsLoading(() => false);
     }

@@ -1,8 +1,8 @@
 "use client";
 
 import * as z from "zod";
-import { formSchema } from "../../validation/formSchema";
-import useContactForm from "../../hooks/useForm";
+import { formSchema } from "@/validation/formSchema";
+import useContactForm from "@/hooks/useForm";
 import {
   Input,
   Wrapper,

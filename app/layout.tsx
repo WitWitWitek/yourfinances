@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "../lib/utils";
 import Navbar from "../components/Navbar/Navbar";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body
         className={cn(inter.className, "relative h-full font-sans antialiased")}
       >
+        <Toaster position="bottom-left" richColors expand={true} />
         <main className="relative flex flex-col min-h-screen">
           <Navbar />
           <div className="flex-grow flex-1">{children}</div>
