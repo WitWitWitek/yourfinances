@@ -18,7 +18,7 @@ export default function Navbar() {
                 width={40}
                 height={40}
               />
-              <div>Twoje Finanse</div>
+              <div className="tracking-wider">Twoje Finanse</div>
             </Link>
           </div>
 
