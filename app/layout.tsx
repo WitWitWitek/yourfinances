@@ -8,15 +8,16 @@ import { Toaster } from "sonner";
 const font = Font({ weight: ["300", "400", "700"], subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Twoje Finanse",
+  title: "Twoje Finanse - Bezpieczna Przyszłość",
   description:
-    "Bezpieczna pożyczka dla Twoich potrzeb! Nie pobierzemy od Ciebie prowizji!",
-  metadataBase: new URL("https://twoje-finanse.com.pl"),
+    "Bezpieczna pożyczka dla Twoich potrzeb! Współpracujemy z renomowanymi placówkami, które od lat oferują usługi na wysokim poziomie. Jesteśmy tu, aby Ci pomóc.",
+  keywords:
+    "konsilidacja kredytu, pożyczka, pomoc finansowa, twoje finanse, zaufanie, dodatkowe środki, kredyt gotówkowy, doradzctwo finansowe, brak prowizji",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_URL!),
   openGraph: {
     title: "Twoje Finanse",
     description:
-      "Bezpieczna pożyczka dla Twoich potrzeb! Nie pobierzemy od Ciebie prowizji!",
-    images: "/opengraph-image.png",
+      "Bezpieczna pożyczka dla Twoich potrzeb! Współpracujemy z renomowanymi placówkami, które od lat oferują usługi na wysokim poziomie. Jesteśmy tu, aby Ci pomóc.",
   },
   twitter: {
     card: "summary_large_image",
