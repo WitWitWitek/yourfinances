@@ -9,11 +9,9 @@ export const formSchema = z.object({
     .max(100, {
       message: "Imię i nazwisko powinny zawierać maksymalnie 100 znaków.",
     }),
-  phone: z
-    .string()
-    .regex(/^(\+|\d)[0-9]{7,16}$/, {
-      message: "Nieprawidłowy numer telefonu.",
-    }),
+  phone: z.string().regex(/^(\+|\d)[0-9]{7,16}$/, {
+    message: "Nieprawidłowy numer telefonu.",
+  }),
   city: z
     .string()
     .min(2, {
@@ -22,6 +20,13 @@ export const formSchema = z.object({
     .max(200, {
       message: "Nazwa miejscowości powinna zawierać maksymalnie 200 znaków.",
     }),
+  agreeAll: z.boolean().default(false),
+  dataAgreement: z.boolean().refine((val) => val === true, {
+    message: "Zgoda wymagana.",
+  }),
+  phoneAgreement: z.boolean().refine((val) => val === true, {
+    message: "Zgoda wymagana.",
+  }),
 });
 
 export type TFormSchema = z.infer<typeof formSchema>;

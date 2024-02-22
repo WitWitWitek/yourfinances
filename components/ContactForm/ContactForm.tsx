@@ -13,13 +13,15 @@ import {
   FormLabel,
   FormControl,
   Button,
+  Checkbox,
 } from "@/components/ui";
 
 export default function ContactForm() {
   const { form, sendContactFormHandler, isLoading } = useContactForm();
-
+  const { setValue } = form;
   const onSubmit = async (values: z.infer<typeof formSchema>) =>
     sendContactFormHandler(values);
+  const selectAll = form.watch("agreeAll");
 
   return (
     <Wrapper className="h-min-screen lg:h-screen py-14" selector="kontakt">
@@ -92,6 +94,73 @@ export default function ContactForm() {
                     />
                   </FormControl>
                   <FormMessage />
+                </FormItem>
+              )}
+            ></FormField>
+
+            <FormField
+              control={form.control}
+              name="agreeAll"
+              disabled={isLoading}
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-start gap-3">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <div>
+                    <FormLabel>Zaznacz wszystkie:</FormLabel>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            ></FormField>
+
+            <FormField
+              control={form.control}
+              name="dataAgreement"
+              disabled={isLoading}
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-start gap-3">
+                  <FormControl>
+                    <Checkbox
+                      checked={selectAll}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <div>
+                    <FormLabel>
+                      Wyrażam zgodę na przetwarzanie moich danych osobowych
+                      wskazanych w niniejszym formularzu w celach marketingu
+                      bezpośredniego podmiotów współpracujących.
+                    </FormLabel>
+                    <FormMessage />
+                  </div>
+                </FormItem>
+              )}
+            ></FormField>
+
+            <FormField
+              control={form.control}
+              name="phoneAgreement"
+              disabled={isLoading}
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-start gap-3">
+                  <FormControl>
+                    <Checkbox
+                      checked={selectAll ?? field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <div>
+                    <FormLabel>
+                      Wyrażam zgodę na otrzymywanie informacji handlowych na
+                      wskazany numer telefonu.
+                    </FormLabel>
+                    <FormMessage />
+                  </div>
                 </FormItem>
               )}
             ></FormField>
