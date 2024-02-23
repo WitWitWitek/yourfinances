@@ -25,7 +25,7 @@ export default function Homeview() {
             <b>Nie pobierzemy od Ciebie prowizji!</b>
           </p>
         </div>
-        <div className="flex flex-row gap-5 justify-center">
+        <div className="flex flex-row flex-wrap gap-5 justify-center">
           <Link
             href="/#kontakt"
             className={buttonVariants({ variant: "default", size: "lg" })}

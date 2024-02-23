@@ -27,7 +27,7 @@ export default function ContactForm() {
     <Wrapper className="h-min-screen py-14" selector="kontakt">
       <div className="md:w-[60%] h-full flex flex-col justify-center gap-5">
         <h2 className="text-4xl sm:text-5xl font-bold mt-8">
-          Formularz kontaktowy
+          Zostaw kontakt. Oddzwonimy!
         </h2>
         <p className="text-muted-foreground">
           Wypełnij poniższy formularz, a doradca oddzwoni z informacją o
