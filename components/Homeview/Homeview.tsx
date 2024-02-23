@@ -25,12 +25,22 @@ export default function Homeview() {
             <b>Nie pobierzemy od Ciebie prowizji!</b>
           </p>
         </div>
-        <div>
+        <div className="flex flex-row gap-5 justify-center">
           <Link
-            href="/#offer"
+            href="/#kontakt"
             className={buttonVariants({ variant: "default", size: "lg" })}
           >
-            Wejdź!
+            Skontaktuj się z nami
+          </Link>
+          <Link
+            href="/#oferta"
+            className={buttonVariants({
+              variant: "outline",
+              size: "lg",
+              className: "border-slate-950",
+            })}
+          >
+            Szczegóły
           </Link>
         </div>
       </div>

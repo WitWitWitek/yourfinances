@@ -4,8 +4,8 @@ import Image from "next/image";
 export default function Offer() {
   return (
     <Wrapper
-      className="h-min-screen lg:h-screen pt-14 flex flex-col md:flex-row gap-5"
-      selector="offer"
+      className="h-min-screen lg:h-screen py-14 flex flex-col md:flex-row gap-5"
+      selector="oferta"
     >
       <div className="h-full w-full md:w-[50%] gap-5 text-justify">
         <div className="h-full flex flex-col justify-center gap-10 md:gap-20">

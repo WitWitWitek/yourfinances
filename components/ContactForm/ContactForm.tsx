@@ -24,9 +24,9 @@ export default function ContactForm() {
   const selectAll = form.watch("agreeAll");
 
   return (
-    <Wrapper className="h-min-screen lg:h-screen py-14" selector="kontakt">
+    <Wrapper className="h-min-screen py-14" selector="kontakt">
       <div className="md:w-[60%] h-full flex flex-col justify-center gap-5">
-        <h2 className="text-4xl sm:text-5xl font-bold mt-8 md:mt-0">
+        <h2 className="text-4xl sm:text-5xl font-bold mt-8">
           Formularz kontaktowy
         </h2>
         <p className="text-muted-foreground">
