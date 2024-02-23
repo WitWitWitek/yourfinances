@@ -15,7 +15,6 @@ const useContactForm = () => {
       fullname: "",
       phone: "",
       city: "",
-      agreeAll: false,
       dataAgreement: false,
       phoneAgreement: false,
     },

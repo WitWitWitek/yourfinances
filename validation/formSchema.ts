@@ -20,7 +20,6 @@ export const formSchema = z.object({
     .max(200, {
       message: "Nazwa miejscowości powinna zawierać maksymalnie 200 znaków.",
     }),
-  agreeAll: z.boolean().default(false),
   dataAgreement: z.boolean().refine((val) => val === true, {
     message: "Zgoda wymagana.",
   }),

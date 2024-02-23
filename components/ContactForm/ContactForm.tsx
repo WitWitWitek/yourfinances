@@ -18,10 +18,9 @@ import {
 
 export default function ContactForm() {
   const { form, sendContactFormHandler, isLoading } = useContactForm();
-  const { setValue } = form;
+
   const onSubmit = async (values: z.infer<typeof formSchema>) =>
     sendContactFormHandler(values);
-  const selectAll = form.watch("agreeAll");
 
   return (
     <Wrapper className="h-min-screen py-14" selector="kontakt">
@@ -97,27 +96,6 @@ export default function ContactForm() {
                 </FormItem>
               )}
             ></FormField>
-
-            <FormField
-              control={form.control}
-              name="agreeAll"
-              disabled={isLoading}
-              render={({ field }) => (
-                <FormItem className="flex flex-row items-start gap-3">
-                  <FormControl>
-                    <Checkbox
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                    />
-                  </FormControl>
-                  <div>
-                    <FormLabel>Zaznacz wszystkie:</FormLabel>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            ></FormField>
-
             <FormField
               control={form.control}
               name="dataAgreement"
@@ -126,7 +104,7 @@ export default function ContactForm() {
                 <FormItem className="flex flex-row items-start gap-3">
                   <FormControl>
                     <Checkbox
-                      checked={selectAll}
+                      checked={field.value}
                       onCheckedChange={field.onChange}
                     />
                   </FormControl>
@@ -150,7 +128,7 @@ export default function ContactForm() {
                 <FormItem className="flex flex-row items-start gap-3">
                   <FormControl>
                     <Checkbox
-                      checked={selectAll ?? field.value}
+                      checked={field.value}
                       onCheckedChange={field.onChange}
                     />
                   </FormControl>
