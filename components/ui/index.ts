@@ -4,3 +4,4 @@ export * from "./form";
 export * from "./label";
 export * from "./input";
 export * from "./checkbox";
+export * from "./accordion";
