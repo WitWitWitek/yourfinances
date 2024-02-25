@@ -148,8 +148,8 @@ export default function ContactForm() {
                       </FormItem>
                     )}
                   ></FormField>
+                  <Agreement />
                 </AccordionContent>
-                <Agreement />
               </AccordionItem>
 
               <AccordionItem value="item-2">
