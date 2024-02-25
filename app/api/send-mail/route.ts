@@ -2,10 +2,12 @@ import { NextResponse, NextRequest } from "next/server";
 import { transporter } from "@/lib/nodemailer";
 import DOMPurify from "isomorphic-dompurify";
 import { TFormSchema } from "@/validation/formSchema";
+import { Agreement } from "@/constants";
 
 export async function POST(request: NextRequest) {
   try {
-    const { city, fullname, phone } = (await request.json()) as TFormSchema;
+    const { city, fullname, phone, dataAgreement, phoneAgreement } =
+      (await request.json()) as TFormSchema;
 
     if (!fullname || !city || !phone) {
       return NextResponse.json(
@@ -27,6 +29,9 @@ export async function POST(request: NextRequest) {
           <p>Imię i nazwisko: ${cleanedFullname}</p>
           <p>Miejscowość: ${cleanedCity}</p>
           <p>Telefon: ${cleanedPhone}</p>
+          <p>Zgody: </p>
+          <p>[ ${dataAgreement ? "TAK" : "NIE"} ] ${Agreement.personal}</p>
+          <p>[ ${phoneAgreement ? "TAK" : "NIE"} ] ${Agreement.phone}</p>
       </div>`,
     };
 

@@ -20,11 +20,10 @@ import {
 } from "@/components/ui";
 import { AccordionItem } from "@radix-ui/react-accordion";
 import Information from "./Information/Information";
-import Agreement from "./Agreement/Agreement";
+import { Agreement } from "@/constants";
 
 export default function ContactForm() {
   const { form, sendContactFormHandler, isLoading } = useContactForm();
-
   const onSubmit = async (values: z.infer<typeof formSchema>) =>
     sendContactFormHandler(values);
 
@@ -122,12 +121,7 @@ export default function ContactForm() {
                           />
                         </FormControl>
                         <div>
-                          <FormLabel>
-                            Wyrażam zgodę na przetwarzanie moich danych
-                            osobowych wskazanych w niniejszym formularzu w
-                            celach marketingu bezpośredniego podmiotów
-                            współpracujących.
-                          </FormLabel>
+                          <FormLabel>{Agreement.personal}</FormLabel>
                           <FormMessage />
                         </div>
                       </FormItem>
@@ -147,18 +141,15 @@ export default function ContactForm() {
                           />
                         </FormControl>
                         <div>
-                          <FormLabel>
-                            Wyrażam zgodę na otrzymywanie informacji handlowych
-                            na wskazany numer telefonu.
-                          </FormLabel>
+                          <FormLabel>{Agreement.phone}</FormLabel>
                           <FormMessage />
                         </div>
                       </FormItem>
                     )}
                   ></FormField>
-                  <Agreement />
                 </AccordionContent>
               </AccordionItem>
+
               <AccordionItem value="item-2">
                 <AccordionTrigger className="text-left text-primary font-bold text-md">
                   Pełne informacje na temat przetwarzania danych osobowych
