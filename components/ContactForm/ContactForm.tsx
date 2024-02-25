@@ -22,11 +22,23 @@ import { AccordionItem } from "@radix-ui/react-accordion";
 import Information from "./Information/Information";
 import { AgreementsEnum } from "@/constants";
 import Agreement from "./Agreement/Agreement";
+import { useState, useEffect } from "react";
 
 export default function ContactForm() {
+  const [isAccordionOpen, setAccordionOpen] = useState<string>("");
   const { form, sendContactFormHandler, isLoading } = useContactForm();
   const onSubmit = async (values: z.infer<typeof formSchema>) =>
     sendContactFormHandler(values);
+
+  const checkboxErrors =
+    Boolean(form.formState.errors.dataAgreement?.message) ||
+    Boolean(form.formState.errors.phoneAgreement?.message);
+
+  useEffect(() => {
+    if (checkboxErrors) {
+      setAccordionOpen("item-1");
+    }
+  }, [checkboxErrors]);
 
   return (
     <Wrapper className="h-min-screen py-14" selector="kontakt">
@@ -103,7 +115,12 @@ export default function ContactForm() {
               )}
             ></FormField>
 
-            <Accordion type="single" collapsible className="w-full">
+            <Accordion
+              type="single"
+              collapsible
+              className="w-full"
+              value={isAccordionOpen}
+            >
               <AccordionItem value="item-1">
                 <AccordionTrigger className="text-left text-primary font-bold text-md">
                   Zgody
