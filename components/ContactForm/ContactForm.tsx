@@ -20,7 +20,8 @@ import {
 } from "@/components/ui";
 import { AccordionItem } from "@radix-ui/react-accordion";
 import Information from "./Information/Information";
-import { Agreement } from "@/constants";
+import { AgreementsEnum } from "@/constants";
+import Agreement from "./Agreement/Agreement";
 
 export default function ContactForm() {
   const { form, sendContactFormHandler, isLoading } = useContactForm();
@@ -121,7 +122,7 @@ export default function ContactForm() {
                           />
                         </FormControl>
                         <div>
-                          <FormLabel>{Agreement.personal}</FormLabel>
+                          <FormLabel>{AgreementsEnum.personal}</FormLabel>
                           <FormMessage />
                         </div>
                       </FormItem>
@@ -141,13 +142,14 @@ export default function ContactForm() {
                           />
                         </FormControl>
                         <div>
-                          <FormLabel>{Agreement.phone}</FormLabel>
+                          <FormLabel>{AgreementsEnum.phone}</FormLabel>
                           <FormMessage />
                         </div>
                       </FormItem>
                     )}
                   ></FormField>
                 </AccordionContent>
+                <Agreement />
               </AccordionItem>
 
               <AccordionItem value="item-2">

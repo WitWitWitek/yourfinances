@@ -2,7 +2,7 @@ import { NextResponse, NextRequest } from "next/server";
 import { transporter } from "@/lib/nodemailer";
 import DOMPurify from "isomorphic-dompurify";
 import { TFormSchema } from "@/validation/formSchema";
-import { Agreement } from "@/constants";
+import { AgreementsEnum } from "@/constants";
 
 export async function POST(request: NextRequest) {
   try {
@@ -30,8 +30,8 @@ export async function POST(request: NextRequest) {
           <p>Miejscowość: ${cleanedCity}</p>
           <p>Telefon: ${cleanedPhone}</p>
           <p>Zgody: </p>
-          <p>[ ${dataAgreement ? "TAK" : "NIE"} ] ${Agreement.personal}</p>
-          <p>[ ${phoneAgreement ? "TAK" : "NIE"} ] ${Agreement.phone}</p>
+          <p>[ ${dataAgreement ? "TAK" : "NIE"} ] ${AgreementsEnum.personal}</p>
+          <p>[ ${phoneAgreement ? "TAK" : "NIE"} ] ${AgreementsEnum.phone}</p>
       </div>`,
     };
 
