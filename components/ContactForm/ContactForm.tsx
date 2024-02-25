@@ -23,9 +23,12 @@ import Information from "./Information/Information";
 import { AgreementsEnum } from "@/constants";
 import Agreement from "./Agreement/Agreement";
 import { useState, useEffect } from "react";
+import { UnfoldHorizontal } from "lucide-react";
 
 export default function ContactForm() {
-  const [isAccordionOpen, setAccordionOpen] = useState<string>("");
+  const [isAccordionOpen, setAccordionOpen] = useState<"item-1" | undefined>(
+    undefined
+  );
   const { form, sendContactFormHandler, isLoading } = useContactForm();
   const onSubmit = async (values: z.infer<typeof formSchema>) =>
     sendContactFormHandler(values);
@@ -36,7 +39,7 @@ export default function ContactForm() {
 
   useEffect(() => {
     if (checkboxErrors) {
-      setAccordionOpen("item-1");
+      setAccordionOpen(() => "item-1");
     }
   }, [checkboxErrors]);
 
@@ -119,7 +122,8 @@ export default function ContactForm() {
               type="single"
               collapsible
               className="w-full"
-              value={isAccordionOpen}
+              value={!isAccordionOpen ? undefined : isAccordionOpen}
+              onValueChange={() => setAccordionOpen(() => undefined)}
             >
               <AccordionItem value="item-1">
                 <AccordionTrigger className="text-left text-primary font-bold text-md">
