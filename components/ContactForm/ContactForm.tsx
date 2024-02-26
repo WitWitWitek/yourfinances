@@ -23,7 +23,7 @@ import Information from "./Information/Information";
 import { AgreementsEnum } from "@/constants";
 import Agreement from "./Agreement/Agreement";
 import { useState, useEffect } from "react";
-import { Phone, UserRound, Home } from "lucide-react";
+import { Phone, UserRound, Home, Loader2 } from "lucide-react";
 
 export default function ContactForm() {
   const [isAccordionOpen, setAccordionOpen] = useState<"item-1" | undefined>(
@@ -143,11 +143,14 @@ export default function ContactForm() {
                           <Checkbox
                             checked={field.value}
                             onCheckedChange={field.onChange}
+                            className="mt-2.5"
                           />
                         </FormControl>
                         <div>
                           <FormLabel>{AgreementsEnum.personal}</FormLabel>
-                          <FormMessage />
+                          <p className="mt-2">
+                            <FormMessage className="bg-destructive text-white inline p-1 rounded-sm" />
+                          </p>
                         </div>
                       </FormItem>
                     )}
@@ -163,11 +166,14 @@ export default function ContactForm() {
                           <Checkbox
                             checked={field.value}
                             onCheckedChange={field.onChange}
+                            className="mt-2.5"
                           />
                         </FormControl>
                         <div>
                           <FormLabel>{AgreementsEnum.phone}</FormLabel>
-                          <FormMessage />
+                          <p className="mt-2">
+                            <FormMessage className="bg-destructive text-white inline p-1 rounded-sm" />
+                          </p>
                         </div>
                       </FormItem>
                     )}
@@ -186,7 +192,8 @@ export default function ContactForm() {
               </AccordionItem>
             </Accordion>
 
-            <Button type="submit" disabled={isLoading}>
+            <Button type="submit" size="lg" disabled={isLoading}>
+              {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Wyślij zgłoszenie
             </Button>
           </form>
