@@ -2,7 +2,7 @@ import { Wrapper } from "@/components/ui";
 import Image from "next/image";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui";
-
+import { BadgeCheck } from "lucide-react";
 export default function Homeview() {
   return (
     <Wrapper className="h-min-screen lg:h-screen flex flex-col lg:flex-row justify-center items-center gap-5 overflow-hidden pt-14">
@@ -12,11 +12,16 @@ export default function Homeview() {
           potrzeb!
         </h1>
         <div className="text-lg text-muted-foreground flex flex-col gap-2">
-          <p>✔ Chcesz zmniejszyć raty swojego kredytu gotówkowego?</p>{" "}
-          <p>✔ Potrzebujesz dodatkowych środków?</p>
           <p>
-            ✔ A może interesuje Cię połączenie swoich zobowiązań w jedno -
-            korzystniejsze?
+            <BadgeCheck className="inline" /> Chcesz zmniejszyć raty swojego
+            kredytu gotówkowego?
+          </p>{" "}
+          <p>
+            <BadgeCheck className="inline" /> Potrzebujesz dodatkowych środków?
+          </p>
+          <p>
+            <BadgeCheck className="inline" /> A może interesuje Cię połączenie
+            swoich zobowiązań w jedno - korzystniejsze?
           </p>
           <p className="text-primary">
             <b>Jesteśmy tu, aby Ci pomóc.</b>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Wrapper, buttonVariants } from "../ui";
 import Image from "next/image";
+import { MailCheck } from "lucide-react";
 
 export default function Navbar() {
   return (
@@ -27,7 +28,7 @@ export default function Navbar() {
               href="/#kontakt"
               className={buttonVariants({ variant: "secondary" })}
             >
-              Kontakt
+              <MailCheck strokeWidth={1.2} className="inline mr-1" /> Kontakt
             </Link>
           </nav>
         </Wrapper>

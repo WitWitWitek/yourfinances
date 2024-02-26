@@ -1,5 +1,6 @@
 import { Wrapper } from "../ui";
 import Image from "next/image";
+import { Handshake, Scaling, HandCoins } from "lucide-react";
 
 export default function Offer() {
   return (
@@ -15,14 +16,20 @@ export default function Offer() {
           <ul className="flex flex-col gap-5 text-lg">
             <li className="text-muted-foreground">
               <span className="text-blue-600">
-                <b>Profesjonalizm i zaufanie</b>
+                <b>
+                  <Handshake strokeWidth={1.5} className="inline mr-1" />
+                  Profesjonalizm i zaufanie
+                </b>
               </span>{" "}
               - Współpracujemy z renomowanymi placówkami, które od lat oferują
               swoim klientom usługi na wysokim poziomie.
             </li>
             <li className="text-muted-foreground">
               <span className="text-blue-600">
-                <b>Dostosowane rozwiązania</b>
+                <b>
+                  <Scaling strokeWidth={1.5} className="inline mr-1" />
+                  Dostosowane rozwiązania
+                </b>
               </span>{" "}
               - Nasza oferta jest elastyczna i dopasowana do indywidualnych
               potrzeb każdego klienta. Konkurencyjne warunki - tak abyś mógł
@@ -30,7 +37,10 @@ export default function Offer() {
             </li>
             <li className="text-muted-foreground">
               <span className="text-blue-600">
-                <b>Konsolidacja kredytu</b>
+                <b>
+                  <HandCoins strokeWidth={1.5} className="inline mr-1" />
+                  Konsolidacja kredytu
+                </b>
               </span>{" "}
               - Jeśli masz wiele kredytów i chciałbyś je połączyć w jedną
               wygodną ratę, zapytaj nas o opcje konsolidacji kredytu BEZ

@@ -23,7 +23,7 @@ import Information from "./Information/Information";
 import { AgreementsEnum } from "@/constants";
 import Agreement from "./Agreement/Agreement";
 import { useState, useEffect } from "react";
-import { UnfoldHorizontal } from "lucide-react";
+import { Phone, UserRound, Home } from "lucide-react";
 
 export default function ContactForm() {
   const [isAccordionOpen, setAccordionOpen] = useState<"item-1" | undefined>(
@@ -61,7 +61,8 @@ export default function ContactForm() {
               disabled={isLoading}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-primary font-bold text-2xl">
+                  <FormLabel className="text-primary font-bold text-xl  flex items-center">
+                    <UserRound strokeWidth={2} className="inline mr-1" />
                     Imię i nazwisko:
                   </FormLabel>
                   <FormControl>
@@ -81,8 +82,9 @@ export default function ContactForm() {
               disabled={isLoading}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-primary font-bold text-2xl">
-                    Numer telefonu:
+                  <FormLabel className="text-primary font-bold text-xl flex items-center">
+                    <Phone strokeWidth={2} className="inline mr-1" /> Numer
+                    telefonu:
                   </FormLabel>
                   <FormControl>
                     <Input
@@ -102,7 +104,8 @@ export default function ContactForm() {
               disabled={isLoading}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-primary font-bold text-2xl">
+                  <FormLabel className="text-primary font-bold text-xl flex items-center">
+                    <Home strokeWidth={2} className="inline mr-1" />
                     Miejscowość:
                   </FormLabel>
                   <FormControl>
