@@ -22,26 +22,12 @@ import { AccordionItem } from "@radix-ui/react-accordion";
 import Information from "./Information/Information";
 import { AgreementsEnum } from "@/constants";
 import Agreement from "./Agreement/Agreement";
-import { useState, useEffect } from "react";
 import { Phone, UserRound, Home, Loader2 } from "lucide-react";
 
 export default function ContactForm() {
-  const [isAccordionOpen, setAccordionOpen] = useState<"item-1" | undefined>(
-    undefined
-  );
   const { form, sendContactFormHandler, isLoading } = useContactForm();
   const onSubmit = async (values: z.infer<typeof formSchema>) =>
     sendContactFormHandler(values);
-
-  const checkboxErrors =
-    Boolean(form.formState.errors.dataAgreement?.message) ||
-    Boolean(form.formState.errors.phoneAgreement?.message);
-
-  useEffect(() => {
-    if (checkboxErrors) {
-      setAccordionOpen(() => "item-1");
-    }
-  }, [checkboxErrors]);
 
   return (
     <Wrapper className="h-min-screen py-14" selector="kontakt">
@@ -120,64 +106,57 @@ export default function ContactForm() {
                 </FormItem>
               )}
             ></FormField>
+            <FormField
+              control={form.control}
+              name="dataAgreement"
+              disabled={isLoading}
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-start gap-3">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                      className="mt-2.5"
+                    />
+                  </FormControl>
+                  <div>
+                    <FormLabel>{AgreementsEnum.personal}</FormLabel>
+                    <p className="mt-2">
+                      <FormMessage className="bg-destructive text-white inline p-1 rounded-sm" />
+                    </p>
+                  </div>
+                </FormItem>
+              )}
+            ></FormField>
 
-            <Accordion
-              type="single"
-              collapsible
-              className="w-full"
-              value={!isAccordionOpen ? undefined : isAccordionOpen}
-              onValueChange={() => setAccordionOpen(() => undefined)}
-            >
+            <FormField
+              control={form.control}
+              name="phoneAgreement"
+              disabled={isLoading}
+              render={({ field }) => (
+                <FormItem className="flex flex-row items-start gap-3">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                      className="mt-2.5"
+                    />
+                  </FormControl>
+                  <div>
+                    <FormLabel>{AgreementsEnum.phone}</FormLabel>
+                    <p className="mt-2">
+                      <FormMessage className="bg-destructive text-white inline p-1 rounded-sm" />
+                    </p>
+                  </div>
+                </FormItem>
+              )}
+            ></FormField>
+            <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1">
                 <AccordionTrigger className="text-left text-primary font-bold text-md">
-                  Zgody
+                  Informacja o administratorze danych
                 </AccordionTrigger>
                 <AccordionContent className="flex flex-col gap-5">
-                  <FormField
-                    control={form.control}
-                    name="dataAgreement"
-                    disabled={isLoading}
-                    render={({ field }) => (
-                      <FormItem className="flex flex-row items-start gap-3">
-                        <FormControl>
-                          <Checkbox
-                            checked={field.value}
-                            onCheckedChange={field.onChange}
-                            className="mt-2.5"
-                          />
-                        </FormControl>
-                        <div>
-                          <FormLabel>{AgreementsEnum.personal}</FormLabel>
-                          <p className="mt-2">
-                            <FormMessage className="bg-destructive text-white inline p-1 rounded-sm" />
-                          </p>
-                        </div>
-                      </FormItem>
-                    )}
-                  ></FormField>
-
-                  <FormField
-                    control={form.control}
-                    name="phoneAgreement"
-                    disabled={isLoading}
-                    render={({ field }) => (
-                      <FormItem className="flex flex-row items-start gap-3">
-                        <FormControl>
-                          <Checkbox
-                            checked={field.value}
-                            onCheckedChange={field.onChange}
-                            className="mt-2.5"
-                          />
-                        </FormControl>
-                        <div>
-                          <FormLabel>{AgreementsEnum.phone}</FormLabel>
-                          <p className="mt-2">
-                            <FormMessage className="bg-destructive text-white inline p-1 rounded-sm" />
-                          </p>
-                        </div>
-                      </FormItem>
-                    )}
-                  ></FormField>
                   <Agreement />
                 </AccordionContent>
               </AccordionItem>
